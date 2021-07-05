@@ -1,80 +1,86 @@
-import React from 'react';
-import { Tooltip, Toast, Popover } from 'bootstrap';
+import React from 'react'
+// import { Tooltip, Toast, Popover } from 'bootstrap';
 
-import './App.scss';
+import '../../App.scss';
+import {useSelector } from 'react-redux'
+import {ACButton, Button, EvalButton} from './Button'
 
-function App() {
+function Calculator() {
+  const { expression } = useSelector(state=>state)
+  console.log(expression)
+  let prev = expression.join(" ")
   return (
     <div id="calculator">
       <div className="row">
         <div className="cell">
-          <button id="display">
-            <div>first row</div>
-            <div>second row</div>
+          <button className="screen">
+            <div id="top-row">{prev === '0'? " ": prev}</div>
+            <div id="display">{expression[expression.length-1]}</div>
           </button>
         </div>
       </div>
       <div className="row">
         <div className="col-6 cell">
-          <button>AC</button>
+          <ACButton id="clear">AC</ACButton>
         </div>
         <div className="col-3 cell">
-          <button>/</button>
+          <Button id="divide">/</Button>
         </div>
         <div className="col-3 cell">
-          <button>X</button>
+          <Button id="multiply">*</Button>
         </div>
       </div>
       <div className="row">
         <div className="col-9">
           <div className="row">
             <div className="col-4 cell">
-              <button>7</button>
+              <Button id="seven">7</Button>
             </div>
             <div className="col-4 cell">
-              <button>8</button>
+              <Button id="eight">8</Button>
             </div>
             <div className="col-4 cell">
-              <button>9</button>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-4 cell">
-              <button>4</button>
-            </div>
-            <div className="col-4 cell">
-              <button>5</button>
-            </div>
-            <div className="col-4 cell">
-              <button>6</button>
+              <Button id="nine">9</Button>
             </div>
           </div>
           <div className="row">
             <div className="col-4 cell">
-              <button>1</button>
+              <Button id="four">4</Button>
             </div>
             <div className="col-4 cell">
-              <button>2</button>
+              <Button id="five">5</Button>
             </div>
             <div className="col-4 cell">
-              <button>3</button>
+              <Button id="six">6</Button>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4 cell">
+              <Button id="one">1</Button>
+            </div>
+            <div className="col-4 cell">
+              <Button id="two">2</Button>
+            </div>
+            <div className="col-4 cell">
+              <Button id="three">3</Button>
             </div>
           </div>
           <div className="row">
             <div className="col-8 cell">
-              <button>0</button>
+              <Button id="zero">0</Button>
             </div>
+
             <div className="col-4 cell">
-              <button>.</button>
+              <Button id="decimal">.</Button>
             </div>
           </div>
         </div>
         <div className="col-3 op-br cell">
-          <button>-</button>
+          <Button id="subtract">-</Button>
 
-          <button>+</button>
+          <Button id="add">+</Button>
 
-          <button id="eval">=</button>
+          <EvalButton id="equals">=</EvalButton>
 
         </div>
       </div>
@@ -83,4 +89,4 @@ function App() {
   );
 }
 
-export default App;
+export default Calculator;

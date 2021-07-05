@@ -1,39 +1,50 @@
-.App {
+@import "~bootstrap/scss/bootstrap";
+
+#calculator {
   text-align: center;
+  max-width: 600px;
+  margin: 2em auto;
+  background-color: gray;
+  padding: 1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.screen {
+  text-align: right;
+  margin-top: 1em;
+}
+#top-row{
+  height: 1em;
+  margin-bottom: 0.5em;
+}
+#display {
+  text-align: right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
+.cell {
+  //border: 1px solid crimson;
+  background-color: gray;
+  text-align: center;
+  button {
+    width: 100%;
   }
+  button {
+    margin-bottom: 1em;
+  }
+
 }
 
-.App-header {
-  min-height: 100vh;
+.op-br{
   display: flex;
   flex-direction: column;
+}
+
+#eval {
+  flex: 2;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
+
+
